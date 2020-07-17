@@ -2,7 +2,6 @@ import React from 'react';
 
 class ViewCards extends React.Component {
 
-
   render() {
     const cards = this.props.array.map((card, index) => {
       return (
