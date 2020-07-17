@@ -33,7 +33,7 @@ class App extends React.Component {
     }
   }
 
-  saveCards(card) {
+  saveCards() {
     localStorage.setItem('flash-cards', JSON.stringify(this.state.cards));
   }
 
@@ -44,7 +44,7 @@ class App extends React.Component {
       return (
         { cards: newArray }
       )
-    }, () => this.saveCards(card))
+    }, this.saveCards)
   }
 
 
