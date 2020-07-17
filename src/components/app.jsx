@@ -27,13 +27,13 @@ class App extends React.Component {
       case 'review-cards':
         return <ReviewCards />;
       case 'view-cards':
-        return <ViewCards />;
+        return <ViewCards array={this.state.cards} />;
       default:
         return null;
     }
   }
 
-  saveCards() {
+  saveCards(card) {
     localStorage.setItem('flash-cards', JSON.stringify(this.state.cards));
   }
 
@@ -44,7 +44,7 @@ class App extends React.Component {
       return (
         { cards: newArray }
       )
-    }, this.saveCards)
+    }, () => this.saveCards(card))
   }
 
 
