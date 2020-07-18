@@ -1,2 +1,2 @@
 # react-flash-cards-pt
-A Flash Card App built with React.js
+A flash card App built with React.js
