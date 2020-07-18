@@ -25,7 +25,7 @@ class App extends React.Component {
       case 'create-card':
         return <CreateCard addCard={this.addCard} setView={this.setView} />;
       case 'review-cards':
-        return <ReviewCards />;
+        return <ReviewCards array={this.state.cards} />;
       case 'view-cards':
         return <ViewCards array={this.state.cards} />;
       default:
