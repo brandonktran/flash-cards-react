@@ -17,14 +17,14 @@ class ReviewCards extends React.Component {
     const listItems = this.props.array.map((card, index) => {
       if (this.state.flip && index.toString() === this.state.currentIndex) {
         return (
-          <Carousel.Item key={index} id={index} onClick={this.flipCard} style={{ backgroundColor: 'grey', height: '500px', paddingTop: '200px', color: 'white' }}>
+          <Carousel.Item key={index} id={index} onClick={this.flipCard} style={{ backgroundColor: 'rgb(100,100,100)', height: '500px', paddingTop: '220px', color: 'white' }}>
             <h3 style={{ display: 'none' }} className="text-center">{card.question}</h3>
             <h3 style={{ display: 'block' }} className="text-center">{card.answer}</h3>
           </Carousel.Item>
         )
       } else {
         return (
-          <Carousel.Item key={index} id={index} onClick={this.flipCard} style={{ backgroundColor: 'grey', height: '500px', paddingTop: '200px', color: 'white' }}>
+          <Carousel.Item key={index} id={index} onClick={this.flipCard} style={{ backgroundColor: 'black', height: '500px', paddingTop: '220px', color: 'white' }}>
             <h3 style={{ display: 'block' }} className="text-center">{card.question}</h3>
             <h3 style={{ display: 'none' }} className="text-center">{card.answer}</h3>
           </Carousel.Item>

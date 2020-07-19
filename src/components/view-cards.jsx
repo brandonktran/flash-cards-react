@@ -5,7 +5,7 @@ class ViewCards extends React.Component {
   render() {
     const cards = this.props.array.map((card, index) => {
       return (
-        <div className="col mb-3" key={index}>
+        <div className="col-md-4" key={index} >
           <div className="card">
             <div className="card-header">Question: {card.question}</div>
             <div className="card-body">
@@ -20,11 +20,11 @@ class ViewCards extends React.Component {
       <div>
         <h1 className="text-center">My Cards</h1>
         <div className="container">
-          <div className="row row-cols-1 row-cols-md-3">
+          <div className="row">
             {cards}
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
