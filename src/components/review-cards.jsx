@@ -6,11 +6,15 @@ class ReviewCards extends React.Component {
     super(props);
     this.state = { flip: false, currentIndex: 0 };
     this.flipCard = this.flipCard.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   flipCard(event) {
-    console.log(typeof event.currentTarget.id);
     this.setState({ flip: !this.state.flip, currentIndex: event.currentTarget.id })
+  }
+
+  handleSelect(selectedIndex, e) {
+    this.setState({ currentIndex: selectedIndex });
   }
 
   render() {
@@ -37,7 +41,7 @@ class ReviewCards extends React.Component {
       <>
         <h1 className="text-center">Review Cards</h1>
         <div className="container">
-          <Carousel interval={null}>
+          <Carousel interval={null} activeIndex={parseInt(this.state.currentIndex)} onSelect={this.handleSelect}>
             {listItems}
           </Carousel>
         </div>
@@ -47,4 +51,5 @@ class ReviewCards extends React.Component {
     );
   }
 }
+
 export default ReviewCards;
