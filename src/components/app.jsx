@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       view: 'view-cards',
-      cards: []
+      cards: [{ question: 'What is React?', answer: 'A JavaScript Framework.' }, { question: 'What is Node?', answer: 'A runtime environment that executed JS outside a browser.' }]
     }
     this.setView = this.setView.bind(this);
     this.saveCards = this.saveCards.bind(this);
@@ -25,7 +25,7 @@ class App extends React.Component {
       case 'create-card':
         return <CreateCard addCard={this.addCard} setView={this.setView} />;
       case 'review-cards':
-        return <ReviewCards />;
+        return <ReviewCards array={this.state.cards} />;
       case 'view-cards':
         return <ViewCards array={this.state.cards} />;
       default:
