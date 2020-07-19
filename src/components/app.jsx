@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       view: 'view-cards',
-      cards: []
+      cards: [{ question: 'hey', answer: 'hi' }]
     }
     this.setView = this.setView.bind(this);
     this.saveCards = this.saveCards.bind(this);

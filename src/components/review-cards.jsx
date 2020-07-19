@@ -4,34 +4,41 @@ import Carousel from 'react-bootstrap/Carousel'
 class ReviewCards extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { index: 0 };
+    this.state = { flip: false, currentIndex: 0 };
+    this.flipCard = this.flipCard.bind(this);
+  }
+
+  flipCard(event) {
+    console.log(typeof event.currentTarget.id);
+    this.setState({ flip: !this.state.flip, currentIndex: event.currentTarget.id })
   }
 
   render() {
-    const newArray = [];
-    let listItems2 = [];
-    const listItems = this.props.array.forEach((card, index) => {
-      newArray.push(card.question);
-      newArray.push(card.answer);
-    });
-    console.log(newArray)
-
-    if (newArray.length > 0) {
-      listItems2 = newArray.map((card, index) => {
+    const listItems = this.props.array.map((card, index) => {
+      if (this.state.flip && index.toString() === this.state.currentIndex) {
         return (
-          <Carousel.Item key={index} style={{ backgroundColor: 'grey' }}>
-            <div className="d-block w-100 text-center">{card}</div>
+          <Carousel.Item key={index} id={index} onClick={this.flipCard} style={{ backgroundColor: 'grey', height: '500px', paddingTop: '200px', color: 'white' }}>
+            <h3 style={{ display: 'none' }} className="text-center">{card.question}</h3>
+            <h3 style={{ display: 'block' }} className="text-center">{card.answer}</h3>
           </Carousel.Item>
         )
-      });
-    }
+      } else {
+        return (
+          <Carousel.Item key={index} id={index} onClick={this.flipCard} style={{ backgroundColor: 'grey', height: '500px', paddingTop: '200px', color: 'white' }}>
+            <h3 style={{ display: 'block' }} className="text-center">{card.question}</h3>
+            <h3 style={{ display: 'none' }} className="text-center">{card.answer}</h3>
+          </Carousel.Item>
+        )
+      }
+
+    });
 
     return (
       <>
         <h1 className="text-center">Review Cards</h1>
         <div className="container">
           <Carousel interval={null}>
-            {listItems2}
+            {listItems}
           </Carousel>
         </div>
       </>
