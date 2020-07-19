@@ -11,6 +11,9 @@ class App extends React.Component {
       view: 'view-cards',
       cards: [{ question: 'What is React?', answer: 'A JavaScript Framework.' }, { question: 'What is Node?', answer: 'A runtime environment that executed JS outside a browser.' }]
     }
+    if (localStorage.length > 0) {
+      this.state.cards = JSON.parse(localStorage.getItem('flash-cards'))
+    }
     this.setView = this.setView.bind(this);
     this.saveCards = this.saveCards.bind(this);
     this.addCard = this.addCard.bind(this);
