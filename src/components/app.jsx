@@ -18,6 +18,7 @@ class App extends React.Component {
     this.saveCards = this.saveCards.bind(this);
     this.addCard = this.addCard.bind(this);
     this.deleteCard = this.deleteCard.bind(this);
+    this.updateCard = this.updateCard.bind(this);
   }
 
   setView(current) {
@@ -31,7 +32,7 @@ class App extends React.Component {
       case 'review-cards':
         return <ReviewCards array={this.state.cards} />;
       case 'view-cards':
-        return <ViewCards array={this.state.cards} deleteCard={this.deleteCard} />;
+        return <ViewCards array={this.state.cards} deleteCard={this.deleteCard} updateCard={this.updateCard} setView={this.setView} />;
       default:
         return null;
     }
@@ -56,6 +57,21 @@ class App extends React.Component {
       const newArray = prevState.cards.filter((card, index) => {
         if (index !== id) {
           return card;
+        }
+      });
+      return (
+        { cards: newArray }
+      )
+    }, this.saveCards)
+  }
+
+  updateCard(id, content) {
+    this.setState(prevState => {
+      const newArray = prevState.cards.map((card, index) => {
+        if (index === id) {
+          return content;
+        } else {
+          return card
         }
       });
       return (
