@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   setView(current) {
-    this.setState({ view: current })
+    this.setState({ view: current });
   }
 
   getView() {
