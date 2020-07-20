@@ -1,4 +1,5 @@
 import React from 'react';
+import "bootstrap/js/src/collapse.js"
 
 class Nav extends React.Component {
 
