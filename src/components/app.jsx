@@ -11,12 +11,13 @@ class App extends React.Component {
       view: 'view-cards',
       cards: [{ question: 'What is React?', answer: 'A JavaScript Framework.' }, { question: 'What is Node?', answer: 'A runtime environment that executed JS outside a browser.' }]
     }
-    if (localStorage.length > 0) {
+    if (JSON.parse(localStorage['flash-cards']).length > 0) {
       this.state.cards = JSON.parse(localStorage.getItem('flash-cards'))
     }
     this.setView = this.setView.bind(this);
     this.saveCards = this.saveCards.bind(this);
     this.addCard = this.addCard.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
   setView(current) {
@@ -30,7 +31,7 @@ class App extends React.Component {
       case 'review-cards':
         return <ReviewCards array={this.state.cards} />;
       case 'view-cards':
-        return <ViewCards array={this.state.cards} />;
+        return <ViewCards array={this.state.cards} deleteCard={this.deleteCard} />;
       default:
         return null;
     }
@@ -44,6 +45,19 @@ class App extends React.Component {
     this.setState(prevState => {
       const newArray = [...prevState.cards];
       newArray.push(card);
+      return (
+        { cards: newArray }
+      )
+    }, this.saveCards)
+  }
+
+  deleteCard(id) {
+    this.setState(prevState => {
+      const newArray = prevState.cards.filter((card, index) => {
+        if (index !== id) {
+          return card;
+        }
+      });
       return (
         { cards: newArray }
       )
