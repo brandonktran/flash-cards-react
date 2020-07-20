@@ -26,10 +26,10 @@ class ViewCards extends React.Component {
   render() {
     const cards = this.props.array.map((card, index) => {
       return (
-        <div className="col-md-4" key={index} >
-          <div className="card">
-            <div className="card-header">Question: {card.question}</div>
-            <div className="card-body">
+        <div className="col-md-4 py-2" key={index} >
+          <div className="card h-100">
+            <div className="card-header"><b>Question:</b> <br></br> {card.question}</div>
+            <div className="card card-body">
               <h5 className="card-title">Answer</h5>
               <p className="card-text">{card.answer}</p>
             </div>
