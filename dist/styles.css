@@ -2,6 +2,15 @@
   background-color: blue;
 }
 
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
 /* body {
   background-color: #2A2A2A;
 }

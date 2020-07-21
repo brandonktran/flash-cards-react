@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import UpdateCard from './update-card'
+import UpdateCard from './update-card';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class ViewCards extends React.Component {
 
@@ -63,36 +64,44 @@ class ViewCards extends React.Component {
     });
     if (!this.state.update) {
       return (
-        <div>
-          <h1 className="text-center">My Cards</h1>
-          <div className="container">
-            <div className="row">
-              {cards}
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}>
+          <div>
+            <h1 className="text-center">My Cards</h1>
+            <div className="container">
+              <div className="row">
+                {cards}
+              </div>
             </div>
+            <Modal
+              show={this.state.show}
+              onHide={this.handleClose}
+              // backdrop="static"
+              keyboard={false}
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Are you sure you want to delete this card?</Modal.Title>
+              </Modal.Header>
+              <Modal.Body></Modal.Body>
+              <Modal.Footer>
+                <button variant="secondary" onClick={this.handleClose}>
+                  Close
+          </button>
+                <button className='delete' variant="primary" onClick={this.handleClose}>
+                  Delete
+          </button>
+              </Modal.Footer>
+            </Modal>
           </div>
-          <Modal
-            show={this.state.show}
-            onHide={this.handleClose}
-            // backdrop="static"
-            keyboard={false}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Are you sure you want to delete this card?</Modal.Title>
-            </Modal.Header>
-            <Modal.Body></Modal.Body>
-            <Modal.Footer>
-              <button variant="secondary" onClick={this.handleClose}>
-                Close
-          </button>
-              <button className='delete' variant="primary" onClick={this.handleClose}>
-                Delete
-          </button>
-            </Modal.Footer>
-          </Modal>
-        </div>
+        </CSSTransitionGroup>
+
       );
     } else {
       return (

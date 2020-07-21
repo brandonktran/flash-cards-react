@@ -1,9 +1,9 @@
 import React from 'react';
-import ViewCards from './view-cards'
-import ReviewCards from './review-cards'
-import CreateCard from './create-card'
-import Nav from './nav'
-import css from '../../dist/styles.css'
+import ViewCards from './view-cards';
+import ReviewCards from './review-cards';
+import CreateCard from './create-card';
+import Nav from './nav';
+import css from '../../dist/styles.css';
 
 class App extends React.Component {
   constructor(props) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class ReviewCards extends React.Component {
   constructor(props) {
@@ -38,14 +39,21 @@ class ReviewCards extends React.Component {
     });
 
     return (
-      <>
-        <h1 className="text-center">Review Cards</h1>
-        <div className="container">
-          <Carousel interval={null} activeIndex={parseInt(this.state.currentIndex)} onSelect={this.handleSelect}>
-            {listItems}
-          </Carousel>
-        </div>
-      </>
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}>
+        <>
+          <h1 className="text-center">Review Cards</h1>
+          <div className="container">
+            <Carousel interval={null} activeIndex={parseInt(this.state.currentIndex)} onSelect={this.handleSelect}>
+              {listItems}
+            </Carousel>
+          </div>
+        </>
+      </CSSTransitionGroup>
 
 
     );

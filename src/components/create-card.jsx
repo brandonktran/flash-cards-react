@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class CreateCard extends React.Component {
   constructor(props) {
@@ -42,23 +43,30 @@ class CreateCard extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1 className="text-center">Create New Card</h1>
-        <form className="text-center" onSubmit={this.handleSubmit} onReset={this.handleReset}>
-          <div className="form-group">
-            <label className="mr-2">Question</label> <br></br>
-            <input type="text" onChange={this.handleChange} name="question" />
-          </div>
-          <div className="form-group">
-            <label className="mr-2">Answer</label> <br></br>
-            <input type="text" onChange={this.handleChange} name="answer" />
-          </div>
-          <div>
-            <button type="submit" className="btn btn-success m-1">Add</button>
-            <button type="reset" className="btn btn-danger m-1">Cancel</button>
-          </div>
-        </form>
-      </div>
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}>
+        <div>
+          <h1 className="text-center">Create New Card</h1>
+          <form className="text-center" onSubmit={this.handleSubmit} onReset={this.handleReset}>
+            <div className="form-group">
+              <label className="mr-2">Question</label> <br></br>
+              <textarea type="text" onChange={this.handleChange} name="question"></textarea>
+            </div>
+            <div className="form-group">
+              <label className="mr-2">Answer</label> <br></br>
+              <textarea type="text" onChange={this.handleChange} name="answer"></textarea>
+            </div>
+            <div>
+              <button type="submit" className="btn btn-success m-1">Add</button>
+              <button type="reset" className="btn btn-danger m-1">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </CSSTransitionGroup>
     );
   }
 }
