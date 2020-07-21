@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class UpdateCard extends React.Component {
 
@@ -46,25 +47,32 @@ class UpdateCard extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1 className="text-center">Update Cards</h1>
-        <div className="container">
-          <form className="text-center" onSubmit={this.handleSubmit} onReset={this.handleReset}>
-            <div className="form-group">
-              <label className="mr-2">Question</label> <br></br>
-              <textarea type="textarea" onChange={this.handleChange} name="question" value={this.state.question}></textarea>
-            </div>
-            <div className="form-group">
-              <label className="mr-2">Answer</label> <br></br>
-              <textarea type="text" onChange={this.handleChange} name="answer" value={this.state.answer}></textarea>
-            </div>
-            <div>
-              <button type="reset" className="btn btn-danger m-1">Cancel</button>
-              <button type="submit" className="btn btn-success m-1">Save Card</button>
-            </div>
-          </form>
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnter={false}
+        transitionLeave={false}>
+        <div>
+          <h1 className="text-center">Update Cards</h1>
+          <div className="container">
+            <form className="text-center" onSubmit={this.handleSubmit} onReset={this.handleReset}>
+              <div className="form-group">
+                <label className="mr-2">Question</label> <br></br>
+                <textarea type="textarea" onChange={this.handleChange} name="question" value={this.state.question}></textarea>
+              </div>
+              <div className="form-group">
+                <label className="mr-2">Answer</label> <br></br>
+                <textarea type="text" onChange={this.handleChange} name="answer" value={this.state.answer}></textarea>
+              </div>
+              <div>
+                <button type="reset" className="btn btn-danger m-1">Cancel</button>
+                <button type="submit" className="btn btn-success m-1">Save Card</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      </CSSTransitionGroup>
     )
   }
 }
