@@ -10,7 +10,7 @@ NPM 6 or higher
 Clone the repository.
 ```console
 git clone https://github.com/brandonktran/react-flash-cards-pt.git
-cd wicked-sales-js
+cd react-flash-cards-pt
 ```
 
 Install all dependencies with NPM.
