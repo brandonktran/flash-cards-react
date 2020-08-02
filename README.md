@@ -1,4 +1,4 @@
-# react-flash-cards-pt
+# flash-cards-react
 A flash card App built with React.js and Bootstrap 4
 
 ## Development
@@ -9,8 +9,8 @@ NPM 6 or higher
 ### Getting Started
 Clone the repository.
 ```console
-git clone https://github.com/brandonktran/react-flash-cards-pt.git
-cd react-flash-cards-pt
+git clone https://github.com/brandonktran/flash-cards-react.git
+cd flash-cards-react
 ```
 
 Install all dependencies with NPM.
