@@ -9,7 +9,7 @@ NPM 6 or higher
 ### Getting Started
 Clone the repository.
 ```console
-git clone https://github.com/brandonktran/wicked-sales-js.git
+git clone https://github.com/brandonktran/react-flash-cards-pt.git
 cd wicked-sales-js
 ```
 
