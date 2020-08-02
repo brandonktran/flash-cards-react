@@ -1,5 +1,5 @@
 # flash-cards-react
-A flash card App built with React.js and Bootstrap 4
+A flash card App built with React.js, Bootstrap 4, & Window.localStorage
 
 ## Development
 ### System Requirements
